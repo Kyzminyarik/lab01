@@ -42,54 +42,53 @@ auto get_group(const json& j) -> std::any {
 }
 
 // парсер
-void print(const student_t& student, std::ostream& ostream){
+void print(const student_t& student, std::ostream& output){
   if (student.name.empty()){
-    ostream << "| 0\t|";
+    output << "| 0\t|";
   } else {
-    ostream << "| " << student.name << "\t|";
+    output << "| " << student.name << "\t|";
   }
 
   if (student.group.type() == typeid(std::nullptr_t)){
-    ostream << "null|";
+    output << "null|";
   } else if (student.group.type() == typeid(std::string)){
     if (std::any_cast<std::string>(student.group).length() == 1){
-      ostream << " " << std::any_cast<std::string>(student.group) << "\t\t\t|";
+      output << " " << std::any_cast<std::string>(student.group) << "\t\t\t|";
     } else {
-      ostream << " " << std::any_cast<std::string>(student.group) << "\t|";
+      output << " " << std::any_cast<std::string>(student.group) << "\t|";
     }
   } else {
-    ostream << " " << std::any_cast<std::size_t>(student.group)
+    output << " " << std::any_cast<std::size_t>(student.group)
        << " group\t|";
   }
 
   if (student.avg.type() == typeid(std::nullptr_t)){
-    ostream << "null\t|";
+    output << "null\t|";
   } else if (student.avg.type() == typeid(std::string)){
-    ostream << " " << std::any_cast<std::string>(student.avg) << "\t|";
+    output << " " << std::any_cast<std::string>(student.avg) << "\t|";
   } else if (student.avg.type() == typeid(std::double_t)){
-    ostream << " " << std::any_cast<std::double_t>(student.avg) << "\t|";
+    output << " " << std::any_cast<std::double_t>(student.avg) << "\t|";
   } else {
-    ostream << " " << std::any_cast<std::size_t>(student.avg) << "\t\t|";
+    output << " " << std::any_cast<std::size_t>(student.avg) << "\t\t|";
   }
 
   if (student.debt.type() == typeid(std::nullptr_t)) {
-    ostream << " null\t\t|" << std::endl;
+    output << " null\t\t|" << std::endl;
   } else if (student.debt.type() == typeid(std::string)) {
-    ostream << " " << std::any_cast<std::string>(student.debt)
+    output << " " << std::any_cast<std::string>(student.debt)
        << "\t\t|" <<  std::endl;
   } else {
-    ostream
-        << " " << std::any_cast<std::vector<std::string>>(student.debt).size()
+    output << " " << std::any_cast<std::vector<std::string>>(student.debt).size()
         << " items\t|" << std::endl;
   }
 }
 
-void print(const std::vector<student_t>& students, std::ostream& ostream) {
-  ostream << "| name          | group     | avg   | debt      |\n";
-  ostream << "|---------------|-----------|-------|-----------|\n";
+void print(const std::vector<student_t>& students, std::ostream& output) {
+  output << "| name          | group     | avg   | debt      |\n";
+  output << "|---------------|-----------|-------|-----------|\n";
   for (auto const& student : students) {
-    print(student, ostream);
-    ostream << "|---------------|-----------|-------|-----------|\n";
+    print(student, output);
+    output << "|---------------|-----------|-------|-----------|\n";
   }
 }
 
