@@ -8,7 +8,7 @@ void from_json(const json& j, student_t& s) {
   s.group = get_group(j.at("group"));
   s.avg = get_avg(j.at("avg"));
   s.debt = get_debt(j.at("debt"));
-}//норм
+}
 
 auto get_name(const json& j) -> std::string {
   return j.get<std::string>();
@@ -21,7 +21,7 @@ auto get_debt(const json& j) -> std::any {
     return j.get<std::string>();
   else
     return j.get<std::vector<std::string> >();
-}//норм
+}
 
 auto get_avg(const json& j) -> std::any {
   if (j.is_null())
@@ -32,14 +32,14 @@ auto get_avg(const json& j) -> std::any {
     return j.get<double>();
   else
     return j.get<std::size_t>();
-}//норм
+}
 
 auto get_group(const json& j) -> std::any {
   if (j.is_string())
     return j.get<std::string>();
   else
     return j.get<std::size_t>();
-}//-норм
+}
 
 // парсер
 void print(const student_t& student, std::ostream& ostream){

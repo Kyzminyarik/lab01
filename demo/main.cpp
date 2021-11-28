@@ -3,7 +3,7 @@
 
 int main() {
   const std::string &jsonPath =
-      "/home/kuzminyarik/students.json";
+      "/home/kuzminyarik/students.json"; // путь до джсон файла
   if (jsonPath.empty()) throw std::runtime_error{"Invalid path"};
 
   std::ifstream file{jsonPath};
@@ -16,11 +16,11 @@ int main() {
 
   if (data["_meta"]["count"] != data["items"].size()){
     throw std::runtime_error{"meta is incorrect"};
-  }
+  } // проверка чисел
 
   if (!data["items"].is_array()){
     throw std::runtime_error{"items is not array"};
-  }
+  }// проверка на массив
 
   std::vector <student_t> students;
 
