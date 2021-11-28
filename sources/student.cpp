@@ -12,7 +12,7 @@ void from_json(const json& j, student_t& s) {
 
 auto get_name(const json& j) -> std::string {
   return j.get<std::string>();
-}//норм
+}
 
 auto get_debt(const json& j) -> std::any {
   if (j.is_null())
