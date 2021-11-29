@@ -1,7 +1,7 @@
 // Copyright 2020 Your Name <your_email>
 
 #include "student.hpp"
-const std::string &jsonPath =  JFile;
+const std::string &jsonPath = JsonFile;
 
 TEST(ParserTest, EmptyPath) {
   EXPECT_FALSE(jsonPath.empty());
