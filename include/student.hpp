@@ -34,5 +34,4 @@ std::vector<student_t> read_file(json data);
 void print(const std::vector<student_t>& students, std::ostream& output);
 void print(const student_t& student, std::ostream& output);
 
-
 #endif // INCLUDE_STUDENT_HPP_

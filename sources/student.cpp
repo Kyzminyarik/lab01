@@ -78,7 +78,8 @@ void print(const student_t& student, std::ostream& output){
     output << " " << std::any_cast<std::string>(student.debt)
        << "\t\t|" <<  std::endl;
   } else {
-    output<<" "<<std::any_cast<std::vector<std::string>>(student.debt).size()
+    output << " " << std::any_cast<std::vector<std::string
+                                               >>(student.debt).size()
         << " items\t|" << std::endl;
   }
 }
