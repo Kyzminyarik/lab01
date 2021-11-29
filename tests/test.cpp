@@ -3,6 +3,9 @@
 #include "student.hpp"
 const std::string &jsonPath =  "/home/kuzminyarik/students.json";
 
+TEST(ParserTest, EmptyPath) {
+  EXPECT_FALSE(jsonPath.empty());
+}
 
 TEST(ParserTest, FileExists) {
   std::ifstream file{jsonPath};
