@@ -1,5 +1,6 @@
 #include <student.hpp>
 
+using json = nlohmann::json;
 
 int main() {
   const std::string &jsonPath =
